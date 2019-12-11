@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IS 445 CRUD Project</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.5.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.5.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.5.2/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.5.2/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.5.2/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="head">
+      <p class="title">Contacts</p>
+    </header>
+    <main class="main">
+      <div class="input-box">
+        <form class="uinput">
+            <label for="name" class="label">Name:</label><br>
+            <input class="input-field" type="text" id="name" value=""><br>
+            <br>
+            <label for="email" class="label">Email:</label><br>
+            <input class="input-field" type="text" id="email" value=""><br>
+            <br>
+            <label for="phone" class="label">Phone Number:</label><br>
+            <input class="input-field" type="text" id="phone" value=""><br>
+            <br>
+            <div class="button" id="submit"><input type="button" value="Submit"></div>
+            <br>
+            <div class="message" id="message">am i here?</div>
+        </form>
+    </div>
+    <ul id="listcon"></ul>
+    </main>
+  </body>
+</html>
