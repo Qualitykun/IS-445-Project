@@ -4,6 +4,8 @@ const returnmsg = document.getElementById('message')
 const button = document.getElementById('submit')
 
 button.addEventListener('click', submit)
+conlist.addEventListener('click', handleClick)
+
 
 function submit() {
     var form = document.getElementById('uinput')
@@ -23,7 +25,7 @@ function usersubmit(name, email, phone) {
     } else{
         if (email.length>0 && email.includes('@')==true) {
             if (phone.length==10 && phone.charat(0)!=0 && phone.charat(0)!=1) {
-                addcontact(name, email, phone);
+                createcontact(name, email, phone);
                 returnmsg.innerHTML="Contact added";
                 returnmsg.style.color= "green";
                 document.getElementById('message').style.display= "block";
@@ -43,7 +45,41 @@ function usersubmit(name, email, phone) {
         }
 }
 
-function addcontact(name, email, phone) {
+function createcontact(name, email, phone) {
+    let newsublist = document.createElement('ul')
+    let newlistname = document.createElement('li');
+    let newlistemail = document.createElement('li');
+    let newlistphone= document.createElement('li');
+    let listname = document.createTextNode(name);
+    let listemail = document.createTextNode(email);
+    let listphone = document.createTextNode(phone);
+    let listclose = document.createElement('li');
+    newlistname.appendChild(listname);
+    newlistemail.appendChild(listemail);
+    newlistphone.appendChild(listphone);
+    const span = document.createElement('SPAN')
+    const txt = document.createTextNode('Delete')
+    span.className = 'close';
+    span.appendChild(txt);
+    listclose.appendChild(span);
+    newsublist.appendChild(newlistname);
+    newsublist.appendChild(newlistemail);
+    newsublist.appendChild(newlistphone);
+    newsublist.appendChild(listclose);
+    listcon.appendChild(newsublist);
+
+function handleClick(event) {
+    const target = event.target;
+    if (target.tagname==='span') {
+        const item = target.parentelement
+        while (item.firstchild) {
+            item.removechild(item.firstchild); 
+        }
+    }
+  }
+}
+
+    /*
     dbcollection
         .add({
             name: name,
@@ -59,6 +95,8 @@ function addcontact(name, email, phone) {
 }
 
 dbcollection.onSnapshot( docs => {
+    conlist.innerHTML = ''
     const data = doc.data();
-    document.write(data.name)
+ 
 })
+*/
